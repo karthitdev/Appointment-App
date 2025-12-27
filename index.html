@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appointment Scheduler</title>
+  <link rel="stylesheet" href="style1.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="logo">
+      <span class="logo-icon"><img src="use.png" alt="" class="log-bt"  ></span>
+      <span class="logo-text">CAPMINDS</span>
+    </div>
+    <button class="btn-primary" id="open-modal-btn">+ Book Appointment</button>
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li class="nav-item active" id="nav-calendar">
+          <span class="icon">📅</span>
+          <span class="text">Calendar</span>
+        </li>
+        <li class="nav-item" id="nav-dashboard">
+          <span class="icon">📊</span>
+          <span class="text">Dashboard</span>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main>
+
+    <!-- CALENDAR VIEW -->
+    <section id="calendar-view" class="view">
+      <div class="calendar-header">
+        <div class="calendar-nav">
+          <button>&lt;</button>
+          <span class="current-date"></span>
+          <button>&gt;</button>
+        </div>
+
+        <div class="calendar-actions">
+          <button class="btn-secondary">Today</button>
+          
+        </div>
+      </div>
+
+      <div class="day-names">
+        <div>Sun</div><div>Mon</div><div>Tue</div>
+        <div>Wed</div><div>Thur</div><div>Fri</div><div>Sat</div>
+      </div>
+
+      <div class="calendar-grid"></div>
+    </section>
+
+    <!-- DASHBOARD VIEW -->
+    <section id="dashboard-view" class="view" hidden>
+      <h2>Practice Dashboard</h2>
+
+      <div class="filters">
+        <input type="text" id="filter-patient" placeholder="Patient Search" />
+        <input type="text" id="filter-doctor" placeholder="Doctor Search" />
+        <input type="date" id="filter-from-date" />
+        <input type="date" id="filter-to-date" />
+        <button class="btn-primary" id="filter-btn">Update</button>
+      </div>
+
+      <table class="appointments-table">
+        
+        <thead >
+        
+          <tr>
+            
+            <thead><th><h3>Appointment Details</h3></thead></th>
+            
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Hospital</th>
+            <th>Specialty</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="dashboard-table-body"></tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- MODAL -->
+  <div id="appointment-modal" class="modal" hidden>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Schedule Appointment</h3> <br>
+        <button id="close-modal-btn">✖</button>
+      </div>
+
+      <form>
+        <div class="form-row">
+          <h2>👤</h2><input id="patient-name" placeholder="Patient Name" required>
+          <h2>👨‍⚕️</h2><input id="doctor-name" placeholder="Doctor Name" required>
+        </div>
+
+        <div class="form-row">
+          <h2>🏥</h2><input id="hospital-name" placeholder="Hospital Name" required>
+          <h2>🩺</h2><input id="specialty" placeholder="Specialty" required>
+        </div>
+
+        <div class="form-row">
+          <h2>📆</h2><input id="appointment-date" type="date" required>
+          <h2>⏰</h2><input id="appointment-time" type="time" required>
+        </div>
+
+        <h2>📝</h2><textarea id="reason" placeholder="Reason" required></textarea>
+
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" id="cancel-modal-btn">Cancel</button>
+          <button type="submit" class="btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
